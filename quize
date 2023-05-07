@@ -1,0 +1,39 @@
+from random import choice
+import random
+
+class Question:
+  def __init__(self,file,answer):
+    self.file = file
+    self.answer = answer
+
+question_file = open("pyquestions.txt","r")
+content = question_file.read()
+
+
+questions = [
+             Question(content[0:117],"c"),
+             Question(content[117:274],"d"),
+             Question(content[274:393],"a"),
+             Question(content[393:496],"c"),
+             Question(content[496:706],"b"),
+             Question(content[706:812],"d"),
+             Question(content[812:951],"a"),
+             Question(content[951:1046],"b"),
+             Question(content[1046:1153],"c"),
+             Question(content[1153:1305],"c"),
+]
+random.shuffle(questions)
+
+
+def python_quiz(questions):
+    score=0
+    for question in questions:
+        print(  )
+        answer = input(question.file)
+        if answer == question.answer:
+             score += 1
+    print("You got", score, "out of", len(questions))
+python_quiz(questions)  
+
+     
+  
